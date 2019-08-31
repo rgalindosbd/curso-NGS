@@ -52,7 +52,7 @@ Si nuestro archivo es un FASTQ:
 
 Esta utilidad nos puede ahorrar espacio en disco:
 
-    gunzip libs.fastq
+    gzip -c libs.fastq > libs.fastq.gz
 
 Para descomprimir, se utiliza:
 
@@ -76,42 +76,42 @@ Las instrucciones que revisaremos, se encuentran desglosadas en el presente ejer
 
 Teclear lo siguiente:
 
-    TrimmomaticSE raw_01_R1.fastq.gz trimmed_01_R1.fastq.gz ILLUMINACLIP:adapters.fa:2:30:10
+    Trimmomatic SE raw_01_R1.fastq.gz trimmed_01_R1.fastq.gz ILLUMINACLIP:adapters.fa:2:30:10
 
 
 ### 2.2 Cortes Fijos de Librerías
 
 Este comando realiza cortes fijos en el inicio de todas las secuencias. Teclear lo siguiente:
 
-    TrimmomaticSE raw_01_R1.fastq.gz headcrop_01_R1.fastq.gz HEADCROP:<bases>
+    Trimmomatic SE raw_01_R1.fastq.gz headcrop_01_R1.fastq.gz HEADCROP:<bases>
 
 Este comando realiza cortes fijos en el final de todas las secuencias. Teclear lo siguiente:
 
-    TrimmomaticSE raw_01_R1.fastq.gz crop_01_R1.fastq.gz CROP:<bases>
+    Trimmomatic SE raw_01_R1.fastq.gz crop_01_R1.fastq.gz CROP:<bases>
 
 ### 2.3 Trimming por método de Ventana Deslizante
 
 Este comando realiza la búsqueda por ventana. Teclear lo siguiente:
 
-    TrimmomaticSE raw_01_R1.fastq.gz sliding_01_R1.fastq.gz SLIDINGWINDOW:<tamaño de ventana>:<calidad>
+    Trimmomatic SE raw_01_R1.fastq.gz sliding_01_R1.fastq.gz SLIDINGWINDOW:<tamaño de ventana>:<calidad>
 
 
 ### 2.4 Trimming de secuencias con un mínimo de tamaño
 
-    TrimmomaticSE raw_01_R1.fastq.gz minlen_01_R1.fastq.gz MINLEN:<tamaño mínimo>
+    Trimmomatic SE raw_01_R1.fastq.gz minlen_01_R1.fastq.gz MINLEN:<tamaño mínimo>
 
 ### 2.5 Filtro por Media de Calida
 
 Este comando realiza la remoción desde el principio de las Secuencias:
 
-    TrimmomaticSE raw_01_R1.fastq.gz leading_01_R1.fastq.gz LEADING:10
+    Trimmomatic SE raw_01_R1.fastq.gz leading_01_R1.fastq.gz LEADING:10
 
 Este comando realiza la remoción a partir del final de las secuencias:
 
-    TrimmomaticSE raw_01_R1.fastq.gz trailing_01_R1.fastq.gz TRAILING:10
+    Trimmomatic SE raw_01_R1.fastq.gz trailing_01_R1.fastq.gz TRAILING:10
 
 ### 2.6 Trimming de Secuencias Pareadas
 
 Teclear lo siguiente:
 
-    TrimmomaticPE raw_01_R1.fastq.gz raw_01_R2.fastq.gz paired_01_R1.fq.gz unpaired_01_R1.fq.gz paired_01_R2.fq.gz unpaired_01_R2.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:25 MINLEN:50
+    Trimmomatic PE raw_01_R1.fastq.gz raw_01_R2.fastq.gz paired_01_R1.fq.gz unpaired_01_R1.fq.gz paired_01_R2.fq.gz unpaired_01_R2.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:25 MINLEN:50
